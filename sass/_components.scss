@@ -447,3 +447,75 @@
     color: var(--color-grey-light-2);
   }
 }
+
+/////////////////////////////////
+// CALL TO ACTION
+.call-to-action {
+  padding: 3.5rem 0;
+  text-align: center;
+
+  &__book-now {
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+}
+
+/////////////////////////////////
+// BOOK NOW BUTTON
+.btn {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 100px;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  color: var(--color-white);
+  overflow: hidden;
+  cursor: pointer;
+
+  & > * {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+
+  &__visible {
+    padding: 2rem 7.5rem;
+  }
+
+  &__invisible {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    padding: 2rem 0;
+  }
+
+  &:hover {
+    background-image: linear-gradient(
+      to left,
+      var(--color-primary-light),
+      var(--color-primary-dark)
+    );
+  }
+
+  &:hover &__visible {
+    transform: translateY(100%);
+  }
+
+  &:hover &__invisible {
+    top: 0;
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
+  }
+}
