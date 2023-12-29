@@ -10,7 +10,9 @@
   --color-grey-dark-1: #333;
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
-  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3); }
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+  --line: 1px solid var(--color-grey-light-2); }
 
 * {
   margin: 0;
@@ -173,7 +175,7 @@ body {
 .overview {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid var(--color-grey-light-2); }
+  border-bottom: var(--line); }
   .overview__heading {
     padding: 1.5rem 3rem;
     font-size: 2.25rem;
@@ -239,6 +241,48 @@ body {
     box-shadow: none;
     transform: scale(1); } }
 
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem; }
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+  padding: 3rem 0;
+  list-style: none;
+  border-top: var(--line);
+  border-bottom: var(--line); }
+  .list__item {
+    flex: 0 0 50%;
+    margin-bottom: 0.7rem; }
+    .list__item::before {
+      content: "";
+      width: 1rem;
+      height: 1rem;
+      display: inline-block;
+      margin-right: 0.7rem;
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover; }
+
+.recommend {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  color: var(--color-grey-dark-3); }
+  .recommend__count {
+    margin-right: auto; }
+  .recommend__photo {
+    width: 4rem;
+    height: 4rem;
+    box-sizing: content-box;
+    border-radius: 50%;
+    border: 3px solid var(--color-white); }
+    .recommend__photo:not(:last-child) {
+      margin-right: -1.5rem; }
+
 .container {
   min-height: 50rem;
   max-width: 120rem;
@@ -252,7 +296,7 @@ body {
   justify-content: space-between;
   align-items: center;
   font-size: 1.4rem;
-  border-bottom: 1px solid var(--color-grey-light-2);
+  border-bottom: var(--line);
   background-color: var(--color-white); }
 
 .content {
@@ -266,6 +310,23 @@ body {
   background-color: var(--color-grey-dark-1); }
 
 .hotel-view {
-  height: 80rem;
   flex: 1;
   background-color: var(--color-white); }
+
+.detail {
+  display: flex;
+  padding: 4.5rem;
+  border-bottom: var(--line);
+  background-color: var(--color-grey-light-1); }
+
+.description {
+  flex: 0 0 60%;
+  margin-right: 4.5rem;
+  padding: 3rem;
+  font-size: 1.4rem;
+  box-shadow: var(--shadow-light);
+  background-color: var(--color-white); }
+
+.user-reviews {
+  background-color: yellowgreen;
+  flex: 1; }

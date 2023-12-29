@@ -212,7 +212,7 @@
 .overview {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid var(--color-grey-light-2);
+  border-bottom: var(--line);
 
   &__heading {
     padding: 1.5rem 3rem;
@@ -306,5 +306,72 @@
   100% {
     box-shadow: none;
     transform: scale(1);
+  }
+}
+
+/////////////////////////////////
+// PARAGRAPHS
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+/////////////////////////////////
+// LIST
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+  padding: 3rem 0;
+  list-style: none;
+  border-top: var(--line);
+  border-bottom: var(--line);
+
+  &__item {
+    flex: 0 0 50%;
+    margin-bottom: 0.7rem;
+
+    &::before {
+      content: "";
+      width: 1rem;
+      height: 1rem;
+      display: inline-block;
+      margin-right: 0.7rem;
+
+      //Older browsers
+      //background-image: url(../img/chevron-thin-right.svg);
+      //background-size: cover;
+
+      //Newer browsers -masks
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+    }
+  }
+}
+
+/////////////////////////////////
+// RECOMMENDATIONS
+.recommend {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  color: var(--color-grey-dark-3);
+
+  &__count {
+    margin-right: auto;
+  }
+
+  &__photo {
+    width: 4rem;
+    height: 4rem;
+    box-sizing: content-box;
+    border-radius: 50%;
+    border: 3px solid var(--color-white);
+
+    &:not(:last-child) {
+      margin-right: -1.5rem;
+    }
   }
 }
